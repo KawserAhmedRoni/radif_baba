@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridwan Ahmed Radif | Digital Identity</title>
+    <link rel="icon" type="image/png" href="fav-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --secondary: #475569;
+            --accent: #e11d48;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f1f5f9 100%);
+            color: var(--text-main);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px; /* Smaller padding for mobile */
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-container {
+            background-color: var(--card-bg);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .left-panel {
+            padding: clamp(20px, 4vw, 40px);
+            background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .right-panel {
+            padding: clamp(20px, 4vw, 40px);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            width: clamp(80px, 12vw, 130px);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .name-bn {
+            font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .name-en {
+            font-size: clamp(1rem, 1.5vw, 1.4rem);
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .name-ar {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--text-main);
+            direction: rtl;
+        }
+
+        .baby-blood {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 700;
+            background: #fff1f2;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-top: 15px;
+            border: 1px solid rgba(225, 29, 72, 0.1);
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.15), transparent);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .meaning-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: grid;
+            gap: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .meaning-item {
+            font-size: 0.9rem;
+        }
+
+        .meaning-item strong {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                overflow: hidden; /* Only hide scroll on desktop */
+            }
+            .container {
+                height: 92vh; /* Use most of the screen */
+            }
+            .card-container {
+                flex-direction: row;
+                height: 100%;
+            }
+            .left-panel {
+                width: 35%;
+                border-right: 1px solid rgba(37, 99, 235, 0.1);
+                border-bottom: none;
+            }
+            .right-panel {
+                width: 65%;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            body {
+                padding: 10px;
+                display: block; /* Allow normal document flow for scrolling */
+            }
+            .container {
+                max-height: none;
+            }
+            .card-container {
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .left-panel, .right-panel {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-container">
+            <!-- Left Panel: Identity -->
+            <div class="left-panel">
+                <img src="logo.png" alt="Logo" class="logo">
+                <div class="name-display">
+                    <div class="name-bn">রিদওয়ান আহমেদ রাদিফ</div>
+                    <div class="name-en">Ridwan Ahmed Radif</div>
+                    <div class="name-ar">رضوان أحمد رادف</div>
+                    <div class="baby-blood">🩸 Blood Group: B+</div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Data & Meaning -->
+            <div class="right-panel">
+                <div class="section-title">জন্মের সময় ও তারিখ (Birth Details)</div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Birth Date</span>
+                        <span class="info-value">২৭ মে, ২০২৬</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Birth Time</span>
+                        <span class="info-value">৫:৫৫ মিনিট</span>
+                    </div>
+                </div>
+
+                <div class="section-title">নামের চমৎকার অর্থ (Meaning)</div>
+                <div class="meaning-box">
+                    <div class="meaning-item">
+                        <strong>মূল অর্থ:</strong> আল্লাহর সন্তুষ্টি অর্জনের পথে এগিয়ে চলা প্রশংসিত সওয়ারী বা অনুসারী।
+                    </div>
+                    <div class="meaning-item">
+                        <strong>রিদওয়ান (رضوان):</strong> আল্লাহর সন্তুষ্টি, জান্নাতের প্রহরী ফেরেশতা।
+                    </div>
+                    <div class="meaning-item">
+                        <strong>আহমেদ (أحمد):</strong> সর্বাধিক প্রশংসিত (রাসূলুল্লাহ সা. এর পবিত্র নাম)।
+                    </div>
+                    <div class="meaning-item">
+                        <strong>রাদিফ (رادف):</strong> সওয়ারী, আরোহী বা অনুসারী।
+                    </div>
+                </div>
+
+                <div class="section-title">পারিবারিক পরিচিতি (Family Details)</div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">বাবার নাম:</span>
+                        <span class="info-value">কাওসার আহমেদ রনি</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">বাবার রক্তের গ্রুপ:</span>
+                        <span class="info-value">B+</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">মায়ের নাম:</span>
+                        <span class="info-value">ফাতেমা জান্নাত</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">মায়ের রক্তের গ্রুপ:</span>
+                        <span class="info-value">O+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
