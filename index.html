@@ -78,7 +78,7 @@
         }
 
         .right-panel {
-            padding: clamp(20px, 4vw, 40px);
+            padding: clamp(15px, 2.5vw, 30px); /* Reduced padding for space */
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -132,15 +132,15 @@
         }
 
         .section-title {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--primary-dark);
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 8px; /* Compact */
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .section-title::after {
@@ -153,8 +153,8 @@
         .info-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 12px; /* Tighter gap */
+            margin-bottom: 12px;
         }
 
         .info-item {
@@ -204,10 +204,10 @@
         .meaning-box {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 12px;
             display: grid;
-            gap: 10px;
+            gap: 6px;
             border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
@@ -241,7 +241,7 @@
             }
             .right-panel {
                 width: 65%;
-                overflow: hidden;
+                overflow: hidden; /* Removing scroll as requested */
             }
         }
 
@@ -265,6 +265,82 @@
             }
             .left-panel, .right-panel {
                 padding: 25px 20px;
+            }
+        }
+
+        /* Journey Styles Refined */
+        .age-journey {
+            margin-bottom: 15px;
+        }
+
+        .counter-grid-mini {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        .counter-mini-item {
+            background: #fff;
+            padding: 5px 2px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eef2f6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .counter-mini-value {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .counter-mini-label {
+            font-size: 0.55rem;
+            color: var(--text-sub);
+            font-weight: 700;
+        }
+
+        .bday-banner {
+            background: linear-gradient(90deg, #f0f7ff 0%, #ffffff 100%);
+            color: var(--text-main);
+            padding: 8px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .bday-banner h4 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .bday-banner p {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .bday-timer-badge {
+            background: #fff1f2;
+            color: var(--accent);
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            border: 1px solid rgba(225, 29, 72, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .counter-grid-mini {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -295,6 +371,43 @@
                     <div class="info-item">
                         <span class="info-label">Birth Time</span>
                         <span class="info-value">৫:৫৫ মিনিট</span>
+                    </div>
+                </div>
+
+                <div class="section-title">জীবনের পথচলা (Journey)</div>
+                <div class="age-journey">
+                    <div class="counter-grid-mini">
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="years">0</span>
+                            <span class="counter-mini-label">বছর</span>
+                        </div>
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="months">0</span>
+                            <span class="counter-mini-label">মাস</span>
+                        </div>
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="days">0</span>
+                            <span class="counter-mini-label">দিন</span>
+                        </div>
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="hours">0</span>
+                            <span class="counter-mini-label">ঘণ্টা</span>
+                        </div>
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="minutes">0</span>
+                            <span class="counter-mini-label">মিনিট</span>
+                        </div>
+                        <div class="counter-mini-item">
+                            <span class="counter-mini-value" id="seconds">0</span>
+                            <span class="counter-mini-label">সেকেন্ড</span>
+                        </div>
+                    </div>
+                    <div class="bday-banner">
+                        <div class="bday-txt">
+                            <h4 id="next-bday-title">১ম জন্মদিন</h4>
+                            <p id="next-bday-date">২৭ মে, ২০২৭</p>
+                        </div>
+                        <div class="bday-timer-badge" id="bday-timer">...</div>
                     </div>
                 </div>
 
@@ -340,5 +453,57 @@
     </div>
 
 
+    <script>
+        const birthDate = new Date(2026, 4, 27, 5, 55); // May 27, 2026, 5:55 AM
+
+        function toBN(num) {
+            const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            return num.toString().split('').map(d => bnDigits[d] || d).join('');
+        }
+
+        function updateAge() {
+            const now = new Date();
+            let years = now.getFullYear() - birthDate.getFullYear();
+            let months = now.getMonth() - birthDate.getMonth();
+            let days = now.getDate() - birthDate.getDate();
+            let hours = now.getHours() - birthDate.getHours();
+            let minutes = now.getMinutes() - birthDate.getMinutes();
+            let seconds = now.getSeconds() - birthDate.getSeconds();
+
+            if (seconds < 0) { seconds += 60; minutes--; }
+            if (minutes < 0) { minutes += 60; hours--; }
+            if (hours < 0) { hours += 24; days--; }
+            if (days < 0) {
+                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += prevMonth.getDate();
+                months--;
+            }
+            if (months < 0) { months += 12; years--; }
+
+            document.getElementById('years').innerText = toBN(years);
+            document.getElementById('months').innerText = toBN(months);
+            document.getElementById('days').innerText = toBN(days);
+            document.getElementById('hours').innerText = toBN(hours);
+            document.getElementById('minutes').innerText = toBN(minutes);
+            document.getElementById('seconds').innerText = toBN(seconds);
+
+            // Next Birthday Logic
+            let nextBdayYear = birthDate.getFullYear() + years + 1;
+            const nextBday = new Date(nextBdayYear, birthDate.getMonth(), birthDate.getDate(), 5, 55);
+            
+            const diff = nextBday - now;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            const ordinals = ["১ম", "২য়", "৩য়", "৪র্থ", "৫ম", "৬ষ্ঠ", "৭ম", "৮ম", "৯ম", "১০ম"];
+            const ageOrdinal = ordinals[years] || toBN(years + 1) + "তম";
+            
+            document.getElementById('next-bday-title').innerText = ageOrdinal + " জন্মদিন";
+            document.getElementById('bday-timer').innerText = `${toBN(d)} দিন ${toBN(h)} ঘণ্টা বাকি`;
+        }
+
+        setInterval(updateAge, 1000);
+        updateAge();
+    </script>
 </body>
 </html>
